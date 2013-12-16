@@ -1,6 +1,6 @@
 FEDENA_DEFAULTS = {
-  :company_name => 'Fedena',
-  :company_url  => 'http://www.projectfedena.org'
+  :company_name => 'Shang Learning',
+  :company_url  => 'http://www.shanglearning.com'
 }
 
 USER_SETTINGS = {}
