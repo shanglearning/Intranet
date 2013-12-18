@@ -5,6 +5,7 @@ development:
       port: 3306
       username: root
       password: 1234
+      encoding: utf8
 
 test: &test
       host: localhost

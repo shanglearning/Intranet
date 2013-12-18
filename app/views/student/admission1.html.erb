@@ -74,22 +74,29 @@
       <hr class="sub-heading"></hr>
 
       <div class="label-field-pair">
-        <label for="student_grade"><%= t('first_name') %><span class="necessary-field">*</span> </label>
+        <label for="student_grade"><%= t('first_name') %><span class="necessary-field"> *</span> </label>
         <div class="text-input-bg"><%= s.text_field :first_name %></div>
       </div>
 
-      <hr class="label-underline"></hr>
+      <!--<hr class="label-underline"></hr>
 
       <div class="label-field-pair">
         <label for="student_grade"><%= t('middle_name') %></label>
         <div class="text-input-bg"><%= s.text_field :middle_name %></div>
-      </div>
+      </div>-->
 
       <hr class="label-underline"></hr>
 
       <div class="label-field-pair">
         <label for="student_grade"><%= t('last_name') %></label>
         <div class="text-input-bg"><%= s.text_field :last_name %></div>
+      </div>
+
+      <hr class="label-underline"></hr>
+
+      <div class="label-field-pair">
+        <label for="student_grade"><%= t('chinese_name') %></label>
+        <div class="text-input-bg"><%= s.text_field :chinese_name %></div>
       </div>
 
       <hr class="label-underline"></hr>
@@ -125,7 +132,7 @@
 
         <hr class="label-underline"></hr>
 
-        <div class="label-field-pair">
+        <!--<div class="label-field-pair">
           <label for="student_blood_group"><%= t('blood_group') %></label>
           <div class="text-input-bg"><%= select :student, :blood_group, ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],{:prompt=> "#{t('unknown')}"} %></div>
         </div>
@@ -137,9 +144,9 @@
           <div class="text-input-bg"><%= s.text_field :birth_place %></div>
         </div>
 
-        <hr class="label-underline"></hr>
+        <hr class="label-underline"></hr>-->
 
-        <div class="label-field-pair">
+        <!--<div class="label-field-pair">
           <label for="student_nationality"><%= t("nationality") %></label>
           <div class="text-input-bg">
             <%= select :student, :nationality_id, Country.all.map {|c| [c.name, c.id]}, :selected=> @student.nationality_id || @selected_value.to_i %>
@@ -158,14 +165,14 @@
         <div class="label-field-pair">
           <label for="student_category"><%= t('category') %></label>
           <div class="text-input-bg"><%= s.select :student_category_id, @categories.map {|c| [c.name, c.id]}, { :prompt => "#{t('select_a_category')}" } %></div>
-        </div>
+        </div>-->
 
-        <hr class="label-underline"></hr>
+        <!--<hr class="label-underline"></hr>
 
-        <div class="label-field-pair">
+        ><div class="label-field-pair">
           <label for="student_religion"><%= t('religion') %></label>
           <div class="text-input-bg"><%= s.text_field :religion %></div>
-        </div>
+        </div>-->
 
       </div>
 
