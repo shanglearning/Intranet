@@ -129,7 +129,7 @@ class Student < ActiveRecord::Base
   end
 
   def full_name
-    "#{first_name} #{middle_name} #{last_name}"
+    "#{first_name} #{middle_name} #{last_name} #{chinese_name}"
   end
 
   def gender_as_text
