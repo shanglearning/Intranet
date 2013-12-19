@@ -1,0 +1,8 @@
+use fedena;
+
+ALTER TABLE fedena CHARACTER SET utf8;
+
+ALTER TABLE students CONVERT TO CHARACTER SET utf8;
+
+ALTER TABLE `fedena`.`students` 
+ADD COLUMN `studentscol` VARCHAR(255) NULL DEFAULT NULL AFTER `chinese_name`;
