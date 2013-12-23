@@ -1,10 +1,13 @@
 use fedena;
 
-ALTER TABLE fedena CHARACTER SET utf8;
+ALTER DATABASE fedena CHARACTER SET utf8;
 
 ALTER TABLE students CONVERT TO CHARACTER SET utf8;
 
 ALTER TABLE guardians CONVERT TO CHARACTER SET utf8;
+
+ALTER TABLE `fedena`.`students` 
+ADD COLUMN `chinese_name` VARCHAR(255) NULL DEFAULT NULL AFTER `user_id`;
 
 ALTER TABLE `fedena`.`guardians` 
 ADD COLUMN `chinese_name` VARCHAR(255) NULL DEFAULT NULL AFTER `user_id`;
