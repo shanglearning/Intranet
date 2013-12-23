@@ -4,5 +4,13 @@ ALTER TABLE fedena CHARACTER SET utf8;
 
 ALTER TABLE students CONVERT TO CHARACTER SET utf8;
 
+ALTER TABLE guardians CONVERT TO CHARACTER SET utf8;
+
+ALTER TABLE `fedena`.`guardians` 
+ADD COLUMN `chinese_name` VARCHAR(255) NULL DEFAULT NULL AFTER `user_id`;
+
 ALTER TABLE `fedena`.`students` 
-ADD COLUMN `studentscol` VARCHAR(255) NULL DEFAULT NULL AFTER `chinese_name`;
+ADD COLUMN `school_grade` INT NULL DEFAULT NULL AFTER `chinese_name`;
+
+ALTER TABLE `fedena`.`students` 
+ADD COLUMN `school_name` VARCHAR(255) NULL DEFAULT NULL AFTER `school_grade`;
