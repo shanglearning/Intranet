@@ -6,10 +6,10 @@ ALTER TABLE students CONVERT TO CHARACTER SET utf8;
 
 ALTER TABLE guardians CONVERT TO CHARACTER SET utf8;
 
-ALTER TABLE `fedena`.`students` 
+ALTER TABLE `fedena`.`guardians` 
 ADD COLUMN `chinese_name` VARCHAR(255) NULL DEFAULT NULL AFTER `user_id`;
 
-ALTER TABLE `fedena`.`guardians` 
+ALTER TABLE `fedena`.`students` 
 ADD COLUMN `chinese_name` VARCHAR(255) NULL DEFAULT NULL AFTER `user_id`;
 
 ALTER TABLE `fedena`.`students` 
@@ -17,3 +17,42 @@ ADD COLUMN `school_grade` INT NULL DEFAULT NULL AFTER `chinese_name`;
 
 ALTER TABLE `fedena`.`students` 
 ADD COLUMN `school_name` VARCHAR(255) NULL DEFAULT NULL AFTER `school_grade`;
+
+ALTER TABLE `fedena`.`students` 
+ADD COLUMN `course_name` VARCHAR(255) NULL DEFAULT NULL AFTER `school_name`;
+
+ALTER TABLE `fedena`.`students` 
+ADD COLUMN `interested_course_names` VARCHAR(255) NULL DEFAULT NULL AFTER `course_name`;
+
+ALTER TABLE `fedena`.`students` 
+ADD COLUMN `first_assessment_notes` LONGTEXT NULL DEFAULT NULL AFTER `interested_course_names`;
+
+ALTER TABLE `fedena`.`students` 
+ADD COLUMN `recommended_course_notes` LONGTEXT NULL DEFAULT NULL AFTER `first_assessment_notes`;
+
+ALTER TABLE `fedena`.`students` 
+ADD COLUMN `first_contact_date` DATE NULL DEFAULT NULL AFTER `recommended_course_notes`;
+
+ALTER TABLE `fedena`.`students` 
+ADD COLUMN `first_contact_staff_name` VARCHAR(255) NULL DEFAULT NULL AFTER `first_contact_date`;
+
+ALTER TABLE `fedena`.`students` 
+ADD COLUMN `first_discussion_notes` LONGTEXT NULL DEFAULT NULL AFTER `first_contact_staff_name`;
+
+ALTER TABLE `fedena`.`students` 
+ADD COLUMN `phone_discussion_notes` LONGTEXT NULL DEFAULT NULL AFTER `first_discussion_notes`;
+
+ALTER TABLE `fedena`.`students` 
+ADD COLUMN `last_contact_date` DATE NULL DEFAULT NULL AFTER `phone_discussion_notes`;
+
+ALTER TABLE `fedena`.`students` 
+ADD COLUMN `last_contact_staff_name` VARCHAR(255) NULL DEFAULT NULL AFTER `last_contact_date`;
+
+ALTER TABLE `fedena`.`students` 
+ADD COLUMN `last_discussion_notes` LONGTEXT NULL DEFAULT NULL AFTER `last_contact_staff_name`;
+
+ALTER TABLE `fedena`.`students` 
+ADD COLUMN `parent_advice_notes` LONGTEXT NULL DEFAULT NULL AFTER `last_discussion_notes`;
+
+ALTER TABLE `fedena`.`students` 
+ADD COLUMN `referral_source` VARCHAR(50) NULL DEFAULT NULL AFTER `parent_advice_notes`;
