@@ -18,9 +18,10 @@ test: &test
 production:
       host: localhost
       adapter: mysql
-      database: fedena_ultimate
+      database: fedena_production
       port: 3306
       username: root
-      password: foradian
+      password: 1234
+      encoding: utf8
 cucumber:
   <<: *test
