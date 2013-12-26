@@ -41,7 +41,7 @@ ALTER TABLE `fedena`.`students`
 ADD COLUMN `recommended_course_notes` LONGTEXT NULL DEFAULT NULL AFTER `first_assessment_notes`;
 
 ALTER TABLE `fedena`.`students` 
-ADD COLUMN `parent_advice_notes` LONGTEXT NULL DEFAULT NULL AFTER `last_discussion_notes`;
+ADD COLUMN `parent_advice_notes` LONGTEXT NULL DEFAULT NULL AFTER `recommended_course_notes`;
 
 ALTER TABLE `fedena`.`students` 
 ADD COLUMN `referral_source_type` VARCHAR(50) NULL DEFAULT NULL AFTER `parent_advice_notes`;
