@@ -10,7 +10,7 @@
 .label_field_pair {
     width:600px;
     height: 40px;
-    padding-top: 3px;
+    padding-top: 1px;
 }
 
 .label_field_pair label.label_for_gender {
@@ -23,20 +23,20 @@
 .label_field_pair1 {
     width:285px;
     float:left;
-    padding-top:40px;
+    padding-top:20px;
 }
 .label_field_pair label {
-    padding-top: 10px;
+    padding-top: 5px;
     display:block;
     color:#444;
-    margin-bottom:10px;
+    margin-bottom:5px;
     font-size: 14px;
     font-weight: 600;
 }
 .label_for_student_gender{
     display:block;
     color:#444;
-    margin-bottom:10px;
+    margin-bottom:0px;
     width:200px;
     float:left;
 }
@@ -59,7 +59,7 @@
     float:left;
     border : 1px solid #c6c6c6;
     margin : 5px 0 0 10px;
-    width : 180px;
+    width : 250px;
     height:23px;
     -moz-border-radius:10px;
     -webkit-border-radius:10px;
@@ -75,7 +75,7 @@
     border:0;
     color:#000;
     padding-left:10px;
-    width:165px;
+    width:250px;
 }
 .label_field_pair input[type="text"] {
     width:210px;height:28px;

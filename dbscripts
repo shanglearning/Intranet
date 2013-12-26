@@ -1,8 +1,18 @@
 use fedena;
 
+CREATE TABLE `fedena`.`contact_logs` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `admission_no` VARCHAR(255) NOT NULL,
+  `contact_date` DATETIME NULL,
+  `contact_staff_name` VARCHAR(255) NULL,
+  `discussion_notes` LONGTEXT NULL,
+  PRIMARY KEY (`id`));
+
 ALTER DATABASE fedena CHARACTER SET utf8;
 
 ALTER TABLE students CONVERT TO CHARACTER SET utf8;
+
+ALTER TABLE contact_logs CONVERT TO CHARACTER SET utf8;
 
 ALTER TABLE guardians CONVERT TO CHARACTER SET utf8;
 
@@ -29,27 +39,6 @@ ADD COLUMN `first_assessment_notes` LONGTEXT NULL DEFAULT NULL AFTER `interested
 
 ALTER TABLE `fedena`.`students` 
 ADD COLUMN `recommended_course_notes` LONGTEXT NULL DEFAULT NULL AFTER `first_assessment_notes`;
-
-ALTER TABLE `fedena`.`students` 
-ADD COLUMN `first_contact_date` DATE NULL DEFAULT NULL AFTER `recommended_course_notes`;
-
-ALTER TABLE `fedena`.`students` 
-ADD COLUMN `first_contact_staff_name` VARCHAR(255) NULL DEFAULT NULL AFTER `first_contact_date`;
-
-ALTER TABLE `fedena`.`students` 
-ADD COLUMN `first_discussion_notes` LONGTEXT NULL DEFAULT NULL AFTER `first_contact_staff_name`;
-
-ALTER TABLE `fedena`.`students` 
-ADD COLUMN `phone_discussion_notes` LONGTEXT NULL DEFAULT NULL AFTER `first_discussion_notes`;
-
-ALTER TABLE `fedena`.`students` 
-ADD COLUMN `last_contact_date` DATE NULL DEFAULT NULL AFTER `phone_discussion_notes`;
-
-ALTER TABLE `fedena`.`students` 
-ADD COLUMN `last_contact_staff_name` VARCHAR(255) NULL DEFAULT NULL AFTER `last_contact_date`;
-
-ALTER TABLE `fedena`.`students` 
-ADD COLUMN `last_discussion_notes` LONGTEXT NULL DEFAULT NULL AFTER `last_contact_staff_name`;
 
 ALTER TABLE `fedena`.`students` 
 ADD COLUMN `parent_advice_notes` LONGTEXT NULL DEFAULT NULL AFTER `last_discussion_notes`;

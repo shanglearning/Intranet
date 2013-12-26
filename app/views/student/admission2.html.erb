@@ -87,11 +87,18 @@
         <hr class="label-underline"></hr>
 
         <div class="label-field-pair">
+          <label for="chinese_name"><%= t('chinese_name') %></label>
+          <div class="text-input-bg"><%= f.text_field :chinese_name %></div>
+        </div>
+        
+        <hr class="label-underline"></hr>
+
+        <div class="label-field-pair">
           <label for="parent_detail_relation"><%= t('relation') %><span class="necessary-field">*</span></label>
           <div class="text-input-bg"><%= f.text_field :relation %></div>
         </div>
 
-        <hr class="label-underline"></hr>
+        <!--<hr class="label-underline"></hr>
 
         <div class="label-field-pair">
           <label for="parent_detail_dob"><%= t("date_of_birth") %></label>
@@ -118,24 +125,13 @@
         <div class="label-field-pair">
           <label for="parent_detail_income"><%= t('income') %></label>
           <div class="text-input-bg"><%= f.text_field :income %></div>
-        </div>
+        </div>-->
 
         <br/>
 
         <span class="span-sub-heading"><%= t("parent") %> - <%= t('contact_details') %></span>
 
         <hr class="sub-heading"></hr>
-
-        <div class="label-field-pair">
-          <label for="parent_detail_email"><%= t('email') %></label>
-          <div class="text-input-bg"><%= f.text_field :email %></div>
-        </div>
-
-        <hr class="label-underline"></hr>
-      </div>
-
-      <div id="admission1_form_vertical_block_right">
-
         <div class="label-field-pair">
           <label for="master_student_city"><%= t('address_line') %> 1</label>
           <% unless @student.address_line1.empty? %>
@@ -146,6 +142,9 @@
         </div>
 
         <hr class="label-underline"></hr>
+      </div>
+
+      <div id="admission1_form_vertical_block_right">
 
         <div class="label-field-pair">
           <label for="master_student_city"><%= t('address_line') %> 2</label>
@@ -192,22 +191,15 @@
         <hr class="label-underline"></hr>
 
         <div class="label-field-pair">
-          <label for="parent_detail_office_phone1"><%= t('phone') %> 1</label>
-          <div class="text-input-bg"><%= f.text_field :office_phone1 %></div>
-        </div>
-
-        <hr class="label-underline"></hr>
-
-        <div class="label-field-pair">
-          <label for="parent_detail_office_phone2"><%= t('phone') %> 2</label>
-          <div class="text-input-bg"><%= f.text_field :office_phone2 %></div>
-        </div>
-
-        <hr class="label-underline"></hr>
-
-        <div class="label-field-pair">
-          <label for="parent_detail_mob_phone"><%= t('mobile') %></label>
+          <label for="parent_detail_mob_phone"><%= t('mobile') %><span class="necessary-field">*</span></label>
           <div class="text-input-bg"><%= f.text_field :mobile_phone %></div>
+        </div>
+
+        <hr class="label-underline"></hr>
+
+        <div class="label-field-pair">
+          <label for="parent_detail_email"><%= t('email') %></label>
+          <div class="text-input-bg"><%= f.text_field :email %></div>
         </div>
 
         <hr class="label-underline"></hr>

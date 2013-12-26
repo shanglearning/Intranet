@@ -41,6 +41,9 @@ class StudentController < ApplicationController
 
   def admission1
     @student = Student.new(params[:student])
+    @contactlog = ContactLog.new(params[:contactlog])
+    # Hardcode the nationality into the student's nationality field as Chinese
+    @student.nationality_id = 36;
     @selected_value = Configuration.default_country 
     @application_sms_enabled = SmsSetting.find_by_settings_key("ApplicationEnabled")
     @last_admitted_student = Student.find(:last)
@@ -50,14 +53,17 @@ class StudentController < ApplicationController
       if @config.config_value.to_i == 1
         @exist = Student.find_by_admission_no(params[:student][:admission_no])
         if @exist.nil?
-          @status = @student.save
+          @contactlog.admission_no = @student.admission_no
+          @status = @student.save & @contactlog.save
         else
           @last_admitted_student = Student.find(:last)
           @student.admission_no = @last_admitted_student.admission_no.next
-          @status = @student.save
+          @contactlog.admission_no = @student.admission_no
+          @status = @student.save & @contactlog.save
         end
       else
-        @status = @student.save
+        @contactlog.admission_no = @student.admission_no
+        @status = @student.save & @contactlog.save
       end
       if @status
         sms_setting = SmsSetting.new()
