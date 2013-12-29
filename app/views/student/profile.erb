@@ -95,16 +95,19 @@
       <span class="profile"><%= t('details') %></span>
       <%= rtl? ? image_tag("master_student/profile/topbanner_rtl.png") : image_tag("master_student/profile/topbanner.png") %></div>
     <table width="700">
-      <tr class="odd left"><td><%= t('admission_date') %></td><td class="right"><%= I18n.l(@student.admission_date,:format=>:normal) unless @student.admission_date.nil? %></td></tr>
-      <tr class="even left"><td><%= t('date_of_birth') %></td><td class="right"><%= I18n.l(@student.date_of_birth,:format=>:normal) unless @student.date_of_birth.nil? %></td></tr>
+      <tr class="even left"><td><%= t('admission_date') %></td><td class="right"><%= I18n.l(@student.admission_date,:format=>:normal) unless @student.admission_date.nil? %></td></tr>
+      <tr class="odd left"><td><%= t('date_of_birth') %></td><td class="right"><%= I18n.l(@student.date_of_birth,:format=>:normal) unless @student.date_of_birth.nil? %></td></tr>
       <!--<tr class="odd left"><td><%= t('blood_group') %></td><td class="right"><%= @student.blood_group %></td></tr>-->
       <tr class="even left"><td><%= t('gender') %></td><td class="right"><%= t("#{@student.gender_as_text.downcase}") %></td></tr>
 
+	  <!--
       <tr class="odd left"><td><%= t('nationality') %></td><td class="right"><%= @student.nationality.name unless @student.nationality_id.nil? %></td></tr>
+      
       <tr class="even left"><td><%= t('language') %></td><td class="right"><%= @student.language %></td></tr>
 
       <tr class="odd left"><td><%= t('category') %></td><td class="right"><%= @student.student_category.name unless @student.student_category.nil? %></td></tr>
       <tr class="even left"><td><%= t('religion') %></td><td class="right"><%= @student.religion %></td></tr>
+      -->
       <tr class="odd left"><td><%= t('address') %></td><td class="right"><%= @student.address_line1%><%= ', ' unless @student.address_line1.blank? %><%=  @student.address_line2 %></td></tr>
 <%#*<tr class="even left"><td></td><td class="right"><%= @student.address_line2%>
       <tr class="even left"><td><%= t('city') %></td><td class="right"><%= @student.city %></td></tr>
@@ -112,8 +115,26 @@
       <tr class="even left"><td><%= t('zip') %></td><td class="right"><%= @student.pin_code %></td></tr>
       <tr class="odd left"><td><%= t('country') %></td><td class="right"><%= @student.country.name unless @student.country_id.nil? %></td></tr>
       <tr class="even left"><td><%= t('phone') %></td><td class="right"><%= @student.phone1 %></td></tr>
+      <!--
       <tr class="odd left"><td><%= t('mobile') %></td><td class="right"><%= @student.phone2 %></td></tr>
-      <tr class="even left"><td><%= t('email') %></td><td class="right"><%= @student.email %></td></tr>
+      -->
+      <tr class="odd left"><td><%= t('email') %></td><td class="right"><%= @student.email %></td></tr>
+      
+      <!-- New Added Fields -->
+      <% if @current_user.admin? %>
+	      <tr class="even left"><td><%= t('interested_course_names') %></td><td class="right"><%= @student.interested_course_names %></td></tr>
+	      <tr class="odd left"><td><%= t('first_assessment_notes') %></td><td class="right"><%= @student.first_assessment_notes %></td></tr>
+	      <tr class="even left"><td><%= t('recommended_course_notes') %></td><td class="right"><%= @student.recommended_course_notes %></td></tr>
+	      <% unless @contactlog_last.nil? %>
+	      	<tr class="odd left"><td><%= t('latest_contact_date') %></td><td class="right"><%= @contactlog_last.contact_date %></td></tr>
+	      	<tr class="even left"><td><%= t('latest_contact_staff_name') %></td><td class="right"><%= @contactlog_last.contact_staff_name %></td></tr>
+	      	<tr class="odd left"><td><%= t('latest_discussion_notes') %></td><td class="right"><%= @contactlog_last.discussion_notes %></td></tr>
+	      <% end %>
+	      <tr class="odd left"><td><%= t('referral_source_promotion') %></td><td class="right"><%= @student.referral_source_promotion %></td></tr>
+	      <tr class="even left"><td><%= t('referral_source_type') %></td><td class="right"><%= @student.referral_source_type %></td></tr>
+	      <tr class="odd left"><td><%= t('referral_source_subtype') %></td><td class="right"><%= @student.referral_source_subtype %></td></tr>
+      <% end %>
+      
       <% unless @student.batch.employee_id.nil? %>
         <% @assigned_employees = Employee.find(:all,:conditions=>"FIND_IN_SET(id,\"#{@student.batch.employee_id}\")")  %>
         <tr class="even left"><td><%= t('group_tutor') %>(s) :</td><td class="right">
@@ -126,9 +147,12 @@
       <% FedenaPlugin::REGISTERED_HOOKS[:student_profile].each do |mod| %>
         <%= render :partial=>mod.camelize.constantize.send("student_profile_hook"),:locals=>{:student=>@student} %>
       <% end %>
+      
+      <!--
       <% if @sms_setting.application_sms_active %>
         <tr class="odd left"><td><%= t('sms_alerts') %></td><td class="right"><%= @student.is_sms_enabled?? "Enabled":"Disabled" %></td></tr>
       <% end  %>
+      -->
       <tr class="even left"><td><%= t('contact_message') %></td><td class="right">
           <%= link_to @immediate_contact.full_name, :controller => "student", :action => "guardians", :id => @student.id \
             unless @immediate_contact.nil? %><%= "(" + @immediate_contact.mobile_phone + ")" if @immediate_contact and !@immediate_contact.mobile_phone.empty? %>

@@ -298,6 +298,8 @@ class StudentController < ApplicationController
 
   def edit
     @student = Student.find(params[:id])
+    @contactlog = ContactLog.new(params[:contactlog]) 
+    @contactlog.admission_no = @student.admission_no
     @student_user = @student.user
     @student_categories = StudentCategory.active
     @batches = Batch.active
@@ -306,7 +308,7 @@ class StudentController < ApplicationController
     if request.post?
       unless params[:student][:image_file].blank?
         unless params[:student][:image_file].size.to_f > 280000
-          if @student.update_attributes(params[:student])
+          if @student.update_attributes(params[:student]) && @contactlog.save
             unless @student.changed.include?('admission_no')
               @student_user.update_attributes(:username=> @student.admission_no,:password => "#{@student.admission_no.to_s}123",:first_name=> @student.first_name , :last_name=> @student.last_name, :email=> @student.email, :role=>'Student')
             else
@@ -320,7 +322,7 @@ class StudentController < ApplicationController
           redirect_to :controller => "student", :action => "edit", :id => @student.id
         end
       else
-        if @student.update_attributes(params[:student])
+        if @student.update_attributes(params[:student]) && @contactlog.save
           unless @student.changed.include?('admission_no')
             @student_user.update_attributes(:username=> @student.admission_no,:password => "#{@student.admission_no.to_s}123",:first_name=> @student.first_name , :last_name=> @student.last_name, :email=> @student.email, :role=>'Student')
           else
@@ -490,6 +492,7 @@ class StudentController < ApplicationController
   def profile
     @current_user = current_user
     @address = @student.address_line1.to_s + ' ' + @student.address_line2.to_s
+    @contactlog_last = ContactLog.find(:all, :conditions => ["admission_no = ?", @student.admission_no]).last
     @additional_fields = StudentAdditionalField.all(:conditions=>"status = true")
     @sms_module = Configuration.available_modules
     @sms_setting = SmsSetting.new

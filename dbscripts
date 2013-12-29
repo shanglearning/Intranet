@@ -51,3 +51,8 @@ ADD COLUMN `referral_source_subtype` VARCHAR(255) NULL DEFAULT NULL AFTER `refer
 
 ALTER TABLE `fedena`.`students` 
 ADD COLUMN `referral_source_promotion` VARCHAR(255) NULL DEFAULT NULL AFTER `referral_source_subtype`;
+
+ALTER TABLE `fedena`.`employees` 
+ADD COLUMN `chinese_name` VARCHAR(255) NULL DEFAULT NULL AFTER `user_id`;
+
+ALTER TABLE student_previous_datas CONVERT TO CHARACTER SET utf8;

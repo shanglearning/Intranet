@@ -119,6 +119,7 @@
 
       <hr class="label-underline"></hr>
       
+      <!--
       <div class="label-field-pair">
         <label for="school_name"><%= t('school_name') %></label>
         <div class="text-input-bg"><%= s.text_field :school_name %></div>
@@ -139,7 +140,7 @@
       </div>
 
       <hr class="label-underline"></hr>
-      
+      -->
       <span class="span-sub-heading"><%= t('staff_input_details') %></span>
         <hr class="sub-heading"></hr>
 
@@ -156,24 +157,30 @@
         </div>
 
         <hr class="label-underline"></hr>
-
-        <div class="label-field-pair">
-          <label for="first_assessment_notes"><%= t('first_assessment_notes') %></label>
-          <div class="text-input-bg"><%= s.text_field :first_assessment_notes %></div>
+        
+        <div class="label-field-pair-text-area">
+          <label for="first_assessment_notes"><%= t('first_assessment_notes') %> </label>
+          <div class="textarea-input-bg">
+          	<%= s.text_area :first_assessment_notes,:cols => 27, :rows => 5,:class => 'admission1-textarea' %>
+          </div>
         </div>
 
         <hr class="label-underline"></hr>
 
-        <div class="label-field-pair">
-          <label for="recommended_course_notes"><%= t('recommended_course_notes') %></label>
-          <div class="text-input-bg"><%= s.text_field :recommended_course_notes %></div>
+        <div class="label-field-pair-text-area">
+          <label for="recommended_course_notes"><%= t('recommended_course_notes') %> </label>
+          <div class="textarea-input-bg">
+          	<%= s.text_area :recommended_course_notes,:cols => 27, :rows => 5,:class => 'admission1-textarea' %>
+          </div>
         </div>
 
         <hr class="label-underline"></hr>
                 
-        <div class="label-field-pair">
-          <label for="parent_advice_notes"><%= t('parent_advice_notes') %></label>
-          <div class="text-input-bg"><%= s.text_field :parent_advice_notes %></div>
+        <div class="label-field-pair-text-area">
+          <label for="parent_advice_notes"><%= t('parent_advice_notes') %> </label>
+          <div class="textarea-input-bg">
+          	<%= s.text_area :parent_advice_notes,:cols => 27, :rows => 5,:class => 'admission1-textarea' %>
+          </div>
         </div>
 
         <hr class="label-underline"></hr>
@@ -194,9 +201,11 @@
         </div>
         <hr class="label-underline"></hr>
 
-        <div class="label-field-pair">
+        <div class="label-field-pair-text-area">
           <label for="first_discussion_notes"><%= t('first_discussion_notes') %> </label>
-          <div class="text-input-bg"><%= clog.text_field :discussion_notes %></div>
+          <div class="textarea-input-bg">
+          	<%= clog.text_area :discussion_notes,:cols => 27, :rows => 5,:class => 'admission1-textarea' %>
+          </div>
         </div>
         <hr class="label-underline"></hr>
 
