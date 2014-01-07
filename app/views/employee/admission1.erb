@@ -154,7 +154,17 @@
         <label class="label_for_status" for="employee_status_false"><%= t('inactive') %></label>
         <%= a.radio_button  "status", "false" %>
       </div>
-      
+      <div class="label_field_pair">
+        <label class="label_for_employee_gender" for="employment_status"><%= t('employment_status') %></label>
+        <div class="employee_gender_value">
+          <label class="label_for_employment_status" for="employment_status_true"><%= t('fulltime') %></label>
+          <%= a.radio_button  "employment_status", "true", :checked => "checked" %>
+
+          <label class="label_for_employment_status" for="employment_status_false"><%= t('parttime') %></label>
+          <%= a.radio_button  "employment_status", "false" %>
+        </div>
+      </div>
+<!--      
       <hr class="label-underline"></hr>
       <div class="label_field_pair">
         <label class="employment_status" for="employment_status"><%= t('employment_status') %></label>
@@ -165,7 +175,7 @@
         <label class="label_for_employment_status" for="employment_status_false"><%= t('parttime') %></label>
         <%= a.radio_button  "employment_status", "false" %>
       </div>
-      
+-->
       <hr class="label-underline"></hr>
       <div class="label-field-pair">
         <label for="contract_length"><%= t('contract_length') %></label>
