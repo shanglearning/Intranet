@@ -145,9 +145,6 @@
           <%= select :employee, :experience_month, (0..11),{:prompt=>"#{t('month')}"} %></div>
       </div>
       <hr class="label-underline"></hr>
-
-
-
       <div class="label_field_pair">
         <label class="employee_status" for="employee_status"><%= t('status') %></label>
 
@@ -157,8 +154,38 @@
         <label class="label_for_status" for="employee_status_false"><%= t('inactive') %></label>
         <%= a.radio_button  "status", "false" %>
       </div>
+      
+      <hr class="label-underline"></hr>
+      <div class="label_field_pair">
+        <label class="employment_status" for="employment_status"><%= t('employment_status') %></label>
 
+        <label class="label_for_employment_status" for="employment_status_true"><%= t('fulltime') %></label>
+        <%= a.radio_button  "employment_status", "true", :checked => "checked" %>
 
+        <label class="label_for_employment_status" for="employment_status_false"><%= t('parttime') %></label>
+        <%= a.radio_button  "employment_status", "false" %>
+      </div>
+      
+      <hr class="label-underline"></hr>
+      <div class="label-field-pair">
+        <label for="contract_length"><%= t('contract_length') %></label>
+        <div class="text-input-bg"><%= a.text_field :contract_length %></div>
+      </div>
+
+      <hr class="label-underline"></hr>
+      <div class="label-field-pair">
+        <label for="employee_nationality"><%= t('nationality') %></label>
+        <div class="text-input-bg"><%= select :employee, :nationality_id, @nationalities.map {|c| [c.name, c.id]}, :selected => @employee.nationality_id || @selected_value %></div>
+      </div>
+      
+      <hr class="label-underline"></hr>
+      
+      <div class="label-field-pair">
+        <label for="master_student_image_file"><%= t('upload_photo') %></label>
+        <div class="text-input-bg"><%= a.file_field :photo, :size=>12 %></div>
+      </div>
+
+<!--
       <br/>
       <span class="span-sub-heading"><%= t('personal_details') %></span>
       <hr class="sub-heading"></hr>
@@ -206,7 +233,7 @@
         <div class="text-input-bg"><%= a.file_field :photo, :size=>12 %></div>
 
       </div>
-
+-->
     </div>
 
     <%= submit_tag "► #{t('save_and_proceed')}", :class => "submit_button" %>

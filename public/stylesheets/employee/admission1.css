@@ -28,8 +28,10 @@
 }
 .label_field_pair label.label_for_employee_gender {float:left; display:inline; width:200px;}
 .label_field_pair label.employee_status {float:left; display:inline; width:200px;}
+.label_field_pair label.employment_status {float:left; display:inline; width:200px;}
 .label_field_pair label.label_for_gender {font-weight:normal;display:inline;}
 .label_field_pair label.label_for_status {font-weight:normal;display:inline;}
+.label_field_pair label.label_for_employment_status {font-weight:normal;display:inline;}
 
 #name_field_block {clear:both;padding-bottom:20px;}
 #name_field_block .text_input_bg {float:left;width:190px;height:28px;background:#fff url(../../images/master_student/admission1/text_input_190px.png) no-repeat;margin-right:5px;margin-bottom:10px;}
@@ -53,10 +55,14 @@
 }
 .label_field_pair .label_for_gender {margin:0;display:block;float:left;padding-top:5px;padding-right:10px;padding-left:10px;}
 .label_field_pair .label_for_status {margin:0;display:block;float:left;padding-top:5px;padding-right:10px;padding-left:10px;}
+.label_field_pair .label_for_emplyoment_status {margin:0;display:block;float:left;padding-top:5px;padding-right:10px;padding-left:10px;}
+
 #employee_gender_true,
 #employee_gender_false {margin:0;padding:0;width:20px;display:inline;margin-bottom:10px;display:block;float:left;}
 #employee_status_true,
 #employee_status_false {margin:0;padding:0;width:20px;display:inline;margin-bottom:10px;display:block;float:left;}
+#employment_status_true,
+#employment_status_false {margin:0;padding:0;width:20px;display:inline;margin-bottom:10px;display:block;float:left;}
 
 
 #create_user {display:inline;}

@@ -56,3 +56,31 @@ ALTER TABLE `fedena`.`employees`
 ADD COLUMN `chinese_name` VARCHAR(255) NULL DEFAULT NULL AFTER `user_id`;
 
 ALTER TABLE student_previous_datas CONVERT TO CHARACTER SET utf8;
+
+# Jan 7 2014 Update
+
+ALTER TABLE `fedena`.`employees` CONVERT TO CHARACTER SET utf8;
+
+ALTER TABLE `fedena`.`employees` 
+ADD COLUMN `employment_status` TINYINT(1) NULL DEFAULT NULL AFTER `chinese_name`;
+
+ALTER TABLE `fedena`.`employees` 
+ADD COLUMN `hukou_address_line1` VARCHAR(255) NULL DEFAULT NULL AFTER `employment_status`;
+
+ALTER TABLE `fedena`.`employees` 
+ADD COLUMN `hukou_address_line2` VARCHAR(255) NULL DEFAULT NULL AFTER `hukou_address_line1`;
+
+ALTER TABLE `fedena`.`employees` 
+ADD COLUMN `hukou_city` VARCHAR(255) NULL DEFAULT NULL AFTER `hukou_address_line2`;
+
+ALTER TABLE `fedena`.`employees` 
+ADD COLUMN `hukou_state` VARCHAR(255) NULL DEFAULT NULL AFTER `hukou_city`;
+
+ALTER TABLE `fedena`.`employees` 
+ADD COLUMN `hukou_country_id` INT(11) NULL DEFAULT NULL AFTER `hukou_state`;
+
+ALTER TABLE `fedena`.`employees` 
+ADD COLUMN `hukou_pin_code` VARCHAR(255) NULL DEFAULT NULL AFTER `hukou_country_id`;
+
+ALTER TABLE `fedena`.`employees` 
+ADD COLUMN `contract_length` INT(11) NULL DEFAULT NULL AFTER `hukou_pin_code`;

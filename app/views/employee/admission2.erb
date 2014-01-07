@@ -36,7 +36,7 @@
 <% form_for :employee do |a| %>
   <%= error_messages_for 'employee' %>
     <div id="form-contents">
-        <span class="span-sub-heading"><%= t('home_address') %></span>
+        <span class="span-sub-heading"><%= t('current_address') %></span>
     <hr class="sub-heading"></hr>
 
         <div class="label-field-pair">
@@ -74,8 +74,11 @@
           <div class="text-input-bg"><%= a.text_field :home_pin_code %></div>
           <div class="extender"></div>
         </div>
-      <br/>
-        <span class="span-sub-heading"><%= t('office_address') %></span>
+      
+        <br/>
+
+<!--
+      <span class="span-sub-heading"><%= t('office_address') %></span>
       <hr class="sub-heading"></hr>
 
         <div class="label-field-pair">
@@ -114,9 +117,51 @@
           <div class="extender"></div>
         </div>
       <br/>
+      --></br/>
+      <span class="span-sub-heading"><%= t('hukou_address') %></span>
+      <hr class="sub-heading"></hr>
+
+        <div class="label-field-pair">
+          <label><%= t('line_1') %></label>
+          <div class="text-input-bg"><%= a.text_field :hukou_address_line1 %></div>
+          <div class="extender"></div>
+        </div>
+        <hr class="label-underline"></hr>
+        <div class="label-field-pair">
+          <label><%= t('line_2') %></label>
+          <div class="text-input-bg"><%= a.text_field :hukou_address_line2 %></div>
+          <div class="extender"></div>
+        </div>
+        <hr class="label-underline"></hr>
+        <div class="label-field-pair">
+          <label><%= t('city') %></label>
+          <div class="text-input-bg"><%= a.text_field :hukou_city %></div>
+          <div class="extender"></div>
+        </div>
+        <hr class="label-underline"></hr>
+        <div class="label-field-pair">
+          <label><%= t('state') %></label>
+          <div class="text-input-bg"><%= a.text_field :hukou_state %></div>
+          <div class="extender"></div>
+        </div>
+        <hr class="label-underline"></hr>
+        <div class="label-field-pair">
+          <label><%= t('country') %></label>
+          <div class="text-input-bg"><%= select :employee, :hukou_country_id, @countries.map {|c| [c.name, c.id]}, :selected => @employee.office_country_id || @selected_value.to_i %></div>
+          <div class="extender"></div>
+        </div>
+        <hr class="label-underline"></hr>
+        <div class="label-field-pair">
+          <label><%= t('zip') %></label>
+          <div class="text-input-bg"><%= a.text_field :hukou_pin_code %></div>
+          <div class="extender"></div>
+        </div>
+      <br/>
+      
+      
         <span class="span-sub-heading"><%= t('contact_details') %></span>
     <hr class="sub-heading"></hr>
-
+<!--
         <div class="label-field-pair">
           <label><%= t('office_phone1') %></label>
           <div class="text-input-bg"><%= a.text_field :office_phone1 %></div>
@@ -129,23 +174,27 @@
           <div class="extender"></div>
         </div>
         <hr class="label-underline"></hr>
+-->
         <div class="label-field-pair">
           <label><%= t('mobile') %></label>
           <div class="text-input-bg"><%= a.text_field :mobile_phone %></div>
           <div class="extender"></div>
         </div>
+<!--
         <hr class="label-underline"></hr>
         <div class="label-field-pair">
           <label><%= t('home_phone') %></label>
           <div class="text-input-bg"><%= a.text_field :home_phone %></div>
           <div class="extender"></div>
         </div>
+        
         <hr class="label-underline"></hr>
         <div class="label-field-pair">
           <label><%= t('fax') %></label>
           <div class="text-input-bg"><%= a.text_field :fax %></div>
           <div class="extender"></div>
         </div>
+-->
     </div>
 
   <div class="save-proceed-button">
