@@ -1,0 +1,26 @@
+use fedena_production;
+
+ALTER TABLE `fedena_production`.`employees` 
+ADD COLUMN `employment_status` TINYINT(1) NULL DEFAULT NULL AFTER `chinese_name`;
+
+ALTER TABLE `fedena_production`.`employees` 
+ADD COLUMN `hukou_address_line1` VARCHAR(255) NULL DEFAULT NULL AFTER `employment_status`;
+
+ALTER TABLE `fedena_production`.`employees` 
+ADD COLUMN `hukou_address_line2` VARCHAR(255) NULL DEFAULT NULL AFTER `hukou_address_line1`;
+
+ALTER TABLE `fedena_production`.`employees` 
+ADD COLUMN `hukou_city` VARCHAR(255) NULL DEFAULT NULL AFTER `hukou_address_line2`;
+
+ALTER TABLE `fedena_production`.`employees` 
+ADD COLUMN `hukou_state` VARCHAR(255) NULL DEFAULT NULL AFTER `hukou_city`;
+
+ALTER TABLE `fedena_production`.`employees` 
+ADD COLUMN `hukou_country_id` INT(11) NULL DEFAULT NULL AFTER `hukou_state`;
+
+ALTER TABLE `fedena_production`.`employees` 
+ADD COLUMN `hukou_pin_code` VARCHAR(255) NULL DEFAULT NULL AFTER `hukou_country_id`;
+
+ALTER TABLE `fedena_production`.`employees` 
+ADD COLUMN `contract_length` INT(11) NULL DEFAULT NULL AFTER `hukou_pin_code`;
+
