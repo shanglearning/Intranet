@@ -1,0 +1,96 @@
+use fedena_production;
+
+CREATE TABLE `fedena_production`.`database_version` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `version_no` VARCHAR(255) NOT NULL,
+  `update_date` DATETIME NULL,
+  PRIMARY KEY (`id`));
+
+CREATE TABLE `fedena_production`.`contact_logs` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `admission_no` VARCHAR(255) NOT NULL,
+  `contact_date` DATETIME NULL,
+  `contact_staff_name` VARCHAR(255) NULL,
+  `discussion_notes` LONGTEXT NULL,
+  PRIMARY KEY (`id`));
+
+ALTER DATABASE fedena_production CHARACTER SET utf8;
+
+ALTER TABLE students CONVERT TO CHARACTER SET utf8;
+
+ALTER TABLE contact_logs CONVERT TO CHARACTER SET utf8;
+
+ALTER TABLE guardians CONVERT TO CHARACTER SET utf8;
+
+ALTER TABLE `fedena_production`.`guardians` 
+ADD COLUMN `chinese_name` VARCHAR(255) NULL DEFAULT NULL AFTER `user_id`;
+
+ALTER TABLE `fedena_production`.`students` 
+ADD COLUMN `chinese_name` VARCHAR(255) NULL DEFAULT NULL AFTER `user_id`;
+
+ALTER TABLE `fedena_production`.`students` 
+ADD COLUMN `school_grade` INT NULL DEFAULT NULL AFTER `chinese_name`;
+
+ALTER TABLE `fedena_production`.`students` 
+ADD COLUMN `school_name` VARCHAR(255) NULL DEFAULT NULL AFTER `school_grade`;
+
+ALTER TABLE `fedena_production`.`students` 
+ADD COLUMN `course_name` VARCHAR(255) NULL DEFAULT NULL AFTER `school_name`;
+
+ALTER TABLE `fedena_production`.`students` 
+ADD COLUMN `interested_course_names` VARCHAR(255) NULL DEFAULT NULL AFTER `course_name`;
+
+ALTER TABLE `fedena_production`.`students` 
+ADD COLUMN `first_assessment_notes` LONGTEXT NULL DEFAULT NULL AFTER `interested_course_names`;
+
+ALTER TABLE `fedena_production`.`students` 
+ADD COLUMN `recommended_course_notes` LONGTEXT NULL DEFAULT NULL AFTER `first_assessment_notes`;
+
+ALTER TABLE `fedena_production`.`students` 
+ADD COLUMN `parent_advice_notes` LONGTEXT NULL DEFAULT NULL AFTER `recommended_course_notes`;
+
+ALTER TABLE `fedena_production`.`students` 
+ADD COLUMN `referral_source_type` VARCHAR(50) NULL DEFAULT NULL AFTER `parent_advice_notes`;
+
+ALTER TABLE `fedena_production`.`students` 
+ADD COLUMN `referral_source_subtype` VARCHAR(255) NULL DEFAULT NULL AFTER `referral_source_type`;
+
+ALTER TABLE `fedena_production`.`students` 
+ADD COLUMN `referral_source_promotion` VARCHAR(255) NULL DEFAULT NULL AFTER `referral_source_subtype`;
+
+ALTER TABLE `fedena_production`.`employees` 
+ADD COLUMN `chinese_name` VARCHAR(255) NULL DEFAULT NULL AFTER `user_id`;
+
+ALTER TABLE student_previous_datas CONVERT TO CHARACTER SET utf8;
+
+INSERT INTO `fedena_production`.`database_version` (version_no, update_date) VALUES (0.0, now());
+
+# Jan 7 2014 Update
+
+ALTER TABLE `fedena_production`.`employees` CONVERT TO CHARACTER SET utf8;
+
+ALTER TABLE `fedena_production`.`employees` 
+ADD COLUMN `employment_status` TINYINT(1) NULL DEFAULT NULL AFTER `chinese_name`;
+
+ALTER TABLE `fedena_production`.`employees` 
+ADD COLUMN `hukou_address_line1` VARCHAR(255) NULL DEFAULT NULL AFTER `employment_status`;
+
+ALTER TABLE `fedena_production`.`employees` 
+ADD COLUMN `hukou_address_line2` VARCHAR(255) NULL DEFAULT NULL AFTER `hukou_address_line1`;
+
+ALTER TABLE `fedena_production`.`employees` 
+ADD COLUMN `hukou_city` VARCHAR(255) NULL DEFAULT NULL AFTER `hukou_address_line2`;
+
+ALTER TABLE `fedena_production`.`employees` 
+ADD COLUMN `hukou_state` VARCHAR(255) NULL DEFAULT NULL AFTER `hukou_city`;
+
+ALTER TABLE `fedena_production`.`employees` 
+ADD COLUMN `hukou_country_id` INT(11) NULL DEFAULT NULL AFTER `hukou_state`;
+
+ALTER TABLE `fedena_production`.`employees` 
+ADD COLUMN `hukou_pin_code` VARCHAR(255) NULL DEFAULT NULL AFTER `hukou_country_id`;
+
+ALTER TABLE `fedena_production`.`employees` 
+ADD COLUMN `contract_length` INT(11) NULL DEFAULT NULL AFTER `hukou_pin_code`;
+
+INSERT INTO `fedena_production`.`database_version` (version_no, update_date) VALUES (0.1, now());

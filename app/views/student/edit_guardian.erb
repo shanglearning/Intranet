@@ -60,6 +60,8 @@
         <label for="parent_detail_relation"><%= t('relation') %></label>
         <div class="text-input-bg"><%= s.text_field :relation, :value => @parent.relation %></div>
       </div>
+      
+      <!--
       <% unless @parent.dob.nil? %>
         <div class="label-field-pair">
           <label for="parent_detail_dob"><%= t('date_of_birth') %></label>
@@ -75,16 +77,19 @@
         <label for="parent_detail_education"><%= t('education') %></label>
         <div class="text-input-bg"><%= s.text_field :education, :value => @parent.education %></div>
       </div>
-
+	  -->
+	  
       <div class="label-field-pair">
         <label for="parent_detail_occupation"><%= t('occupation') %></label>
         <div class="text-input-bg"><%= s.text_field :occupation, :value => @parent.occupation %></div>
       </div>
 
+	  <!--
       <div class="label-field-pair">
         <label for="parent_detail_income"><%= t('income') %></label>
         <div class="text-input-bg"><%= s.text_field :income, :value => @parent.income %></div>
       </div>
+     -->
 
       <div class="label-field-pair">
         <label for="parent_detail_email"><%= t('email') %></label>
