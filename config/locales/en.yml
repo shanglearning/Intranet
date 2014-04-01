@@ -1764,7 +1764,7 @@ en: # locale
   warning: "Warning"
   no_teacher_associated: "No teacher associated to this Course"
   time_table_is_being_generated: "Time table is being generated.Please stay on the page"
-  no_timetable_entry_for_batch: "No Timetable entry for Batch"
+  no_timetable_entry_for_batch: "No timetable entry for term"
   add_subjects: "Add Subjects"
   swap_class: "Swap class"
   create_or_edit_timetable: "Create/Edit Timetable"
