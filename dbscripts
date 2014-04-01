@@ -62,9 +62,6 @@ ALTER TABLE student_previous_datas CONVERT TO CHARACTER SET utf8;
 ALTER TABLE `fedena_production`.`employees` CONVERT TO CHARACTER SET utf8;
 
 ALTER TABLE `fedena_production`.`employees` 
-ADD COLUMN `chinese_name` VARCHAR(255) NULL DEFAULT NULL AFTER `user_id`;
-
-ALTER TABLE `fedena_production`.`employees` 
 ADD COLUMN `employment_status` TINYINT(1) NULL DEFAULT NULL AFTER `chinese_name`;
 
 ALTER TABLE `fedena_production`.`employees` 
